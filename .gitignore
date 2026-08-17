@@ -1,0 +1,31 @@
+# Python 缓存文件
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 虚拟环境
+venv/
+.venv/
+env/
+ENV/
+
+# 环境变量、密钥文件（防止把API密钥提交上去！非常重要）
+.env
+.env.local
+secrets.json
+
+# VS Code / IDE配置
+.vscode/
+.idea/
+
+# 打包输出文件
+build/
+dist/
+*.egg-info/
+
+# 日志文件
+*.log
+
+# 系统文件
+Thumbs.db
+.DS_Store
