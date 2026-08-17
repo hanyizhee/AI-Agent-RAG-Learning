@@ -1,7 +1,7 @@
 # AI-Agent-RAG-Learning
 
 #### 介绍
-这个仓库记录了我从零开始学习AI Agent + RAG的完整历程（2026-2027），包含Python练习、RAg应用和Agent项目
+这个仓库记录了我从零开始学习AI Agent + RAG的完整历程（2026-2027），包含Python练习、RAG应用和Agent项目
 
 #### 软件架构
 软件架构说明
