@@ -1,37 +1,78 @@
-# AI-Agent-RAG-Learning
+# Python 函数学习笔记
 
-#### 介绍
-这个仓库记录了我从零开始学习AI Agent + RAG的完整历程（2026-2027），包含Python练习、RAG应用和Agent项目
+> 记录我从零开始学习 Python 函数的完整过程
 
-#### 软件架构
-软件架构说明
+---
 
+## 📚 学习内容
 
-#### 安装教程
+### 第1天：函数基础（basic.py）
+- ✅ 函数介绍
+- ✅ 函数定义（`def`）
+- ✅ 函数参数与返回值（`return`）
+- ✅ 函数说明文档（docstring）
+- ✅ 函数嵌套应用
+- ✅ 案例练习
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+### 第2天：函数进阶（advanced.py）
+- ✅ 变量作用域（`global` 关键字）
+- ✅ 传参方式（位置参数、关键字参数）
+- ✅ 默认参数（缺省参数）
+- ✅ 不定长参数（`*args` 和 `**kwargs`）
+- ✅ 参数类型（函数作为参数）
+- ✅ 匿名函数（`lambda` 表达式）
+- ✅ 案例1：递归函数
+- ✅ 案例2：电商总金额计算系统
 
-#### 使用说明
+---
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+## 🚀 如何运行
 
-#### 参与贡献
+```bash
+# 运行基础练习
+python functions/basic.py
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+# 运行进阶练习
+python functions/advanced.py
+```
 
+---
 
-#### 特技
+## 📁 项目结构
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+```
+practice/
+├── README.md                  # 项目说明文档（中文）
+├── README.en.md               # 项目说明文档（英文）
+├── LICENSE                    # 开源许可协议
+├── .gitignore                 # Git 忽略文件配置
+└── functions/                 # 函数学习模块
+    ├── basic.py               # 函数基础
+    └── advanced.py            # 函数进阶
+```
+
+---
+
+📅 学习进度
+
+☑ 第1天：函数基础（2026-08-18）
+☑ 第2天：函数进阶（2026-08-19）
+☐ 第3天：待规划...
+
+---
+
+💡 学习心得
+
+每天进步一点点，坚持带来大改变！
+
+---
+
+📝 提交记录
+
+日期 内容 提交信息
+2026-08-18 完成函数基础学习 feat: 初始化 basic.py
+2026-08-19 完成函数进阶学习 feat: 新增 advanced.py
+
+```
+
+---
