@@ -11,6 +11,12 @@
 6.匿名函数(lambda表达式)
 7.案例1(递归)
 8.案例2:电商总金额计算系统
+
+日期:2026-08-20
+
+学习内容:
+类型注解 - 介绍
+类型注解 - 函数类型注解
 """
 #=========================== 变量的作用域 ===========================#
 # 变量的作用域：指的是变量的作用范围（表示这个变量在哪里可以使用，在哪不能用）
@@ -223,8 +229,8 @@
     积分抵扣需要商品总金额满5000才可以使用,100积分抵扣1元(且抵扣金额不能超过商品总价，积分只能整百抵扣)。
 """
 
-# def calc_final_amount(*args,coupon_discount,points,shipping_fee):
-#     """_summary_
+# def calc_final_amount(*args: tuple[str,float,int],coupon_discount: int,points: int,shipping_fee: float):
+#     """根据传入的一批商品信息(商品名、价格、数量)、优惠(优惠券、积分抵扣)、运费信息计算订单的总金额
 
 #     Args:
 #         coupon_discount (int): 优惠券抵扣
@@ -249,6 +255,52 @@
 
 # print(calc_final_amount(("白菜",1000,6),("土豆",500,2),coupon_discount = 200,points = 40000,shipping_fee = 200))
 
+
+#========================= 类型注解基本介绍 =========================#
+# 类型注解：是Python中的一种语法特性，用于明确表示变量、函数参数和返回值的数据类型，从而使代码更清晰、更安全、更易维护。
+
+# 变量定义 - 未指定变量注释
+
+# a = 596
+# score = 98.5
+# hobby = "Python"
+# flag = True
+# pic = None
+
+# names = ["A","C","E"]
+# phones = {"13309091111","15209101902","18809019201"}
+# options = {"count": 2,"total": 10}
+# goods = ("手机",6999,1)
+
+
+# 变量定义 - 指定类型注释
+
+# a2: int = 596
+# score2: float = 98.5
+# hobby: str = "Python"
+# flag2: bool = True
+# pic2: None = None
+
+# names2:list[str|int] = ["A","C","E"]
+# phones2:set[str] = {"13309091111","15209101902","18809019201"}
+# options2:dict[str,int] = {"count": 2,"total": 10}
+# goods2:tuple[str,int,int] = ("手机",6999,1)
+
+# names2.append(123)
+
+
+#------------------ 函数 - 类型注解 ------------------#
+
+# def circle_area_len(r: float) -> tuple[float,float]:  # 泛型容器（list，set，dict，tuple）后都用中括号
+#     return round(3.14 * r * r,1),round(3.14 * 2 * r,1)
+
+# print(circle_area_len(8.5))
+
+
+#=========================== 类型推断 ===========================#
+# 类型推断是指Python解释器自动推断出变量、表达式或函数返回值的数据类型的能力，而无需开发者显式声明。
+
+# 注意在对变量进行直接赋值，或者直接进行赋值，或者涉及到变量的运算、容器的推导等场景时，解释器会自动推导出变量的类型。
 
 
 
