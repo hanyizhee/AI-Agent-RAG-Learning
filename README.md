@@ -24,6 +24,30 @@
 - ✅ 案例1：递归函数
 - ✅ 案例2：电商总金额计算系统
 
+### 第3天：模块与类型注解（module_intro.py）
+
+- ✅ 类型注解
+  - 变量类型注解（`name: str = "张三"`）
+  - 函数参数类型注解（`def greet(name: str) -> str:`）
+  - 函数返回值类型注解（`-> str`）
+  - 类型推断（编辑器自动识别类型）
+- ✅ 模块介绍
+  - 什么是模块（`.py` 文件）
+  - 模块的作用（代码复用、命名空间隔离）
+- ✅ 导入模块的方式
+  - `import module`（导入整个模块）
+  - `from module import func`（导入特定功能）
+  - `import module as alias`（起别名）
+  - `from module import *`（导入所有，不推荐）
+- ✅ 自定义模块
+  - 创建 `.py` 文件作为模块
+  - 模块中的全局变量与函数
+  - `if __name__ == "__main__"` 的作用
+- ✅ 模块包（Package）
+  - 包的概念（包含 `__init__.py` 的文件夹）
+  - 包的作用（组织多个模块）
+  - 包的导入方式（`from package import module`）
+
 ---
 
 ## 🚀 如何运行
@@ -43,9 +67,12 @@ python functions/advanced.py
 ```
 practice/
 ├── README.md                  # 项目说明文档（中文）
-├── README.en.md               # 项目说明文档（英文）
 ├── LICENSE                    # 开源许可协议
 ├── .gitignore                 # Git 忽略文件配置
+├── modules/                   # 模块学习模块
+|   ├── utils                  # 工具包
+|   ├── module_intro           # 模块内容介绍
+|   └── module.test            # 模块内容测试
 └── functions/                 # 函数学习模块
     ├── basic.py               # 函数基础
     └── advanced.py            # 函数进阶
@@ -57,7 +84,8 @@ practice/
 
 ☑ 第1天：函数基础（2026-08-18）
 ☑ 第2天：函数进阶（2026-08-19）
-☐ 第3天：待规划...
+☑ 第3天：类型注解与模块（2026-08-20）
+☐ 第4天：待解锁 ~
 
 ---
 
@@ -73,3 +101,4 @@ practice/
 |------|------|---------|
 | 2026-08-18 | 完成函数基础学习 | `feat: 初始化 basic.py` |
 | 2026-08-19 | 完成函数进阶学习 | `feat: 新增 advanced.py` |
+| 2026-08-20 | 完成类型注解与模块学习 | `feat: 学习模块导入、自定义模块及 utils 包的 __init__.py 配置` |
