@@ -9,6 +9,23 @@
 # module_intro.log_separator3()  # __all__ 变量只在用 from 模块 import * 的时候才起作用
 
 
+#------------------ import 模块名 as 别名 ------------------#
+
+# import module_intro as mi
+# print(mi.PI)
+
+#-------------- from 模块名 import 功能名 --------------#
+
+# from module_intro import __name__     # 该句话直接就能输出
+# print(__name__)                       # 不需要 print 语句就能输出
+
+
+#-------------- from 模块名 import 功能名 as 别名 --------------#
+
+# from module_intro import PI as P
+# print(P)
+
+
 #-------------- from 模块名 import * --------------#
 
 # from module_intro import *
@@ -16,12 +33,6 @@
 # log_separator1()  # 调用方式：功能名
 # log_separator3()  # 因为在 module_intro 文件中用 __all__ 变量指定了只能导入 log_separator1() 和 log_separator2()，所以此行会报错。
 # 启用上一行前先修改 module_intro 文件中的__all__
-
-
-#-------------- from 模块名 import 功能名 --------------#
-
-# from module_intro import __name__     # 该句话直接就能输出
-# print(__name__)                       # 不需要 print 语句就能输出
 
 
 #=========================== 导入模块（包） ===========================#
@@ -60,3 +71,13 @@
 # from 另一个文件的文件名.utils.my_fun import log_separator1,log_separator3
 # log_separator1()
 # log_separator3()
+
+
+#------------------ from 包名.模块名 import * ------------------#
+
+# from utils.my_var import *
+# print(PI)
+
+# from utils.my_fun import *
+# log_separator1()
+# print(log_separator1())  # 这样会返回一个空值，因为 log_separator1 这个函数没有 return 所以这个语句就是返回一个空值。
