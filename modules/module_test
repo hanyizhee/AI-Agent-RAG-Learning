@@ -1,0 +1,62 @@
+#=========================== 导入自定义模块 ===========================#
+
+#------------------ import 模块名 ------------------#
+
+# import module_intro
+
+# print(module_intro.PI)  # 调用方式：模块名.功能名
+# module_intro.log_separator1()
+# module_intro.log_separator3()  # __all__ 变量只在用 from 模块 import * 的时候才起作用
+
+
+#-------------- from 模块名 import * --------------#
+
+# from module_intro import *
+
+# log_separator1()  # 调用方式：功能名
+# log_separator3()  # 因为在 module_intro 文件中用 __all__ 变量指定了只能导入 log_separator1() 和 log_separator2()，所以此行会报错。
+# 启用上一行前先修改 module_intro 文件中的__all__
+
+
+#-------------- from 模块名 import 功能名 --------------#
+
+# from module_intro import __name__     # 该句话直接就能输出
+# print(__name__)                       # 不需要 print 语句就能输出
+
+
+#=========================== 导入模块（包） ===========================#
+
+#------------------ import 包名.模块名 ------------------#
+
+# import utils.my_fun
+
+# utils.my_fun.log_separator1()
+# utils.my_fun.log_separator2()
+
+
+#------------------ from 包名 import 模块名 ------------------#
+
+# from utils import my_fun
+
+# my_fun.log_separator1()
+# my_fun.log_separator2()
+# my_fun.log_separator3()
+
+
+#------------------ 包名 import * ------------------#
+# 注意：在用此方法前，必须在 __init__.py 模块中添加 __all__=[]
+
+# from utils import *
+
+# my_fun.log_separator1()
+# my_fun.log_separator4()
+
+
+#------------------ from 包名.模块名 import 功能名 ------------------#
+
+# 相对路径：从当前文件所在目录查找
+# from utils.my_fun import log_separator1,log_separator3
+# 绝对路径：从项目的根目录下查找
+# from 另一个文件的文件名.utils.my_fun import log_separator1,log_separator3
+# log_separator1()
+# log_separator3()
