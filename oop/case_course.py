@@ -1,9 +1,9 @@
 class Student:  # 定义"Student"类
     def __init__(self,name,chinese,math,english):  # 初始化方法
         self.name = name  # 学生的姓名
-        Student.chinese = chinese   # 学生的语文成绩
-        Student.math = math         # 学生的数学成绩
-        Student.english = english   # 学生的英语成绩
+        self.chinese = chinese   # 学生的语文成绩
+        self.math = math         # 学生的数学成绩
+        self.english = english   # 学生的英语成绩
 
     def __str__(self):  # 定义打印对象时显示的内容
         return f"姓名:{self.name} 语文: {self.chinese} 数学: {self.math} 英语: {self.english}"
@@ -113,7 +113,7 @@ class EduManagement:
 
 # 运行系统
     def run(self):
-        print("欢迎使用教务管理系统 V{EduManagement.system_version}")
+        print(f"欢迎使用教务管理系统 V{EduManagement.system_version}")
     
         while True:
             print()
