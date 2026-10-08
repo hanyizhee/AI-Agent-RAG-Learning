@@ -16,3 +16,4 @@ response = client.chat.completions.create(
 
 # 输出大模型返回的结果
 print(response.choices[0].message.content)
+st.chat_message("assistant").write(response.choices[0].message.content)
