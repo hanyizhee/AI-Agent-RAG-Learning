@@ -54,10 +54,21 @@ if prompt: # 字符串会自动转换为布尔值，如果字符串非空，则�
             {"role":"system","content": system_prompt},
             *st.session_state.messages
         ],
-        stream=False
+        stream=True #启用流式输出
     )
-    # 输出大模型返回的结果
-    print("<---------- 大模型返回的结果: ",response.choices[0].message.content)
-    st.chat_message("assistant").write(response.choices[0].message.content)
+    # 输出大模型返回的结果（非流式输出的解析方式）
+    # print("<---------- 大模型返回的结果: ",response.choices[0].message.content)
+    # st.chat_message("assistant").write(response.choices[0].message.content)
+
+
+    # 输出大模型返回的结果（流式输出的解析方式）
+    response_message = st.empty()# 创建一个空的组件，并用于展示大模型返回的结果
+    full_response = "" # 保存大模型返回的结果
+    for chunk in response: # 大模型返回的结果是一个流式输出，需要逐个处理
+        if chunk.choices[0].delta.content is not None: # 判断当前输出的流式结果是否为None
+            content = chunk.choices[0].delta.content # 获取大模型返回的结果
+            full_response += content # 保存大模型返回的结果
+            response_message.chat_message("assistant").write(full_response) # 展示大模型返回的结果
+
     # 保存大模型返回的结果
-    st.session_state.messages.append({"role":"assistant","content":response.choices[0].message.content})
+    st.session_state.messages.append({"role":"assistant","content":full_response})

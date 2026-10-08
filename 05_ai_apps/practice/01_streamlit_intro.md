@@ -1,7 +1,6 @@
 Streamlit
 
-● Streamlit是一个开源的Python库,专为数据工程师及机器学习工程师设计,用来快速基于Python代码构建交互式的
-web网站(无需掌握前端技术)。
+● Streamlit是一个开源的Python库,专为数据工程师及机器学习工程师设计,用来快速基于Python代码构建交互式的web网站(无需掌握前端技术)。
 
 ● 官方网站:https://streamlit.io
 
