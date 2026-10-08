@@ -29,3 +29,11 @@ dist/
 # 系统文件
 Thumbs.db
 .DS_Store
+
+# 敏感信息
+**/API-key.txt
+**/*key*.txt
+**/.env
+**/secrets.yaml
+**/config.local.yaml
+
