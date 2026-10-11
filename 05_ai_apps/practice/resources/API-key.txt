@@ -1,0 +1,2 @@
+sk-743b4c6a627b4f53b986602b75bef5b6
+deepseek-r1:7b-qwen-distill-q4_K_M
