@@ -1,0 +1,18 @@
+# This is an example configuration file
+# To learn more, see the full config.yaml reference: https://docs.continue.dev/reference
+
+name: Example Config
+version: 1.0.0
+schema: v1
+
+# Define which models can be used
+# https://docs.continue.dev/customization/models
+models:
+  - name: My Local Ollama Model
+    provider: ollama
+    model: deepseek-r1:7b-qwen-distill-q4_K_M
+    roles:
+      - apply
+      - autocomplete
+      - chat
+      - edit

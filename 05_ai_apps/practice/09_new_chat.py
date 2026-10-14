@@ -45,7 +45,7 @@ def load_sessions():
     if os.path.exists("sessions"):
         file_list = os.listdir("sessions")
         for filename in file_list:
-            if filename.endswith(".json"):
+            if filename.endswith(".json"): # 判断文件名是否以.json结尾
                 session_list.append(filename[:-5:1])
     session_list.sort(reverse=True) # 排序，降序排序
     return session_list
@@ -147,7 +147,7 @@ with st.sidebar:
     st.text("会话历史")
     session_list = load_sessions()
     for session in session_list:
-        col1,col2 = st.columns([4,1])
+        col1,col2 = st.columns([4,1]) # 创建两个列
         with col1:
             # 加载会话信息
             # 三元运算符：如果条件为真，则返回第一个值，否则返回第二个值 --> 语法：值1 if 条件 else 值2
@@ -214,5 +214,6 @@ if prompt: # 字符串会自动转换为布尔值，如果字符串非空，则�
 
     # 保存会话信息
     save_session()
+    st.rerun()
 
 
