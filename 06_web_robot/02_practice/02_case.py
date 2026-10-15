@@ -5,9 +5,9 @@ import re
 
 # 常量
 MOVIE_LIST_FILE = "../csv_data/movie_list.csv"
-TMDB_BASE_URL = "https://www.themoviedb.org/"
-TMDB_TOP_URL_1 = "https://www.themoviedb.org/movie/top-rated"
+TMDB_BASE_URL = "https://www.themoviedb.org/"ps://www.themoviedb.org/movie/top-rated"
 TMDB_TOP_URL_2 = "https://www.themoviedb.org/discover/movie/items"
+TMDB_TOP_URL_1 = "htt
 
 # 保存电影数据，保存为 csv
 def save_all_movies(all_movies):
@@ -18,7 +18,7 @@ def save_all_movies(all_movies):
 
 # 获取电影年份
 def get_movie_year(movie_year):
-    movie_year = movie_year[0].strip()
+    movie_year = movie_year[0].strip() if movie_year else ''
     return movie_year.replace("(","").replace(")","")
 
 # 获取电影上映时间
@@ -26,13 +26,12 @@ def get_movie_date(movie_dates):
     movie_date = movie_dates[0].strip() if movie_dates else ''
     return re.search(r"\d{4}-\d{2}-\d{2}",movie_date).group()
 
-
-#
-def get_movie_time(movie_cost_times):
-    movie_cost_time = movie_cost_times[0].strip() if movie_cost_times else ''
-    h_res = re.search(r"(\d+)h",movie_cost_time)
-    m_res = re.search(r"(\d+)m",movie_cost_time)
-    h = int(h_res.group(1)) if h_res else 0
+# 获取电影播放时长
+def get_movie_time(movie_cost_time):
+    cost_time = movie_cost_time[0].strip() if movie_cost_time else ''
+    h_res = re.search(r"(\d+)h",cost_time)
+    m_res = re.search(r"(\d+)m",cost_time)
+    h = int(h_res.group(1)) if h_res else 0 # group 取出来的永远是字符串类型
     m = int(m_res.group(1)) if m_res else 0
     return h * 60 +m
 
@@ -48,7 +47,7 @@ def get_movie_info(movie_info_url):
     movie_year = movie_doc.xpath("//*[@id='original_header']/div[2]/section/div[1]/h2/span/text()")
     movie_dates = movie_doc.xpath("//*[@id='original_header']/div[2]/section/div[1]/div/span[@class='release']/text()")
     movie_tags = movie_doc.xpath("//*[@id='original_header']/div[2]/section/div[1]/div/span[@class='genres']/a/text()")
-    movie_cost_times = movie_doc.xpath("//*[@id='original_header']/div[2]/section/div[1]/div/span[@class='runtime']/text()")
+    movie_cost_time = movie_doc.xpath("//*[@id='original_header']/div[2]/section/div[1]/div/span[@class='runtime']/text()")
     movie_scores = movie_doc.xpath("//*[@id='consensus_pill']/div/div[1]/div/div/@data-percent")
     movie_languages = movie_doc.xpath("//*[@id='media_v4']/div/div/div[2]/div/section/div[1]/div/section[1]/p[3]/text()")
     movie_directors = movie_doc.xpath("//*[@id='original_header']/div[2]/section/div[3]/ol/li[2]/p[1]/a/text()")
@@ -61,7 +60,7 @@ def get_movie_info(movie_info_url):
         "年份": get_movie_year(movie_year),
         "上映时间": get_movie_date(movie_dates),
         "类型": movie_tags[0].strip() if movie_tags else '',
-        "时长": get_movie_time(movie_cost_times),
+        "时长": get_movie_time(movie_cost_time),
         "评分": movie_scores[0].strip() if movie_scores else '',
         "语言": movie_languages[0].strip() if movie_languages else '',
         "导演": movie_directors[0].strip() if movie_directors else '',
@@ -89,15 +88,15 @@ def main():
         movie_list = doc.xpath("//*[@class='w-full overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-colors hover:border-gray-300']")
 
         # 3.遍历电影列表，获取电影详情
-
         for movie in movie_list:
-            movie_urls = movie.xpath("./div/div/a/@href")
-            if movie_urls:
+            movie_url = movie.xpath("./div/div/a/@href")
+            if movie_url:
                 # 电影详情的url地址
-                movie_info_url = TMDB_BASE_URL + movie_urls[0]
+                movie_info_url = TMDB_BASE_URL + movie_url[0]
                 # 发送请求，获取电影详情数据
                 movie_info = get_movie_info(movie_info_url)
                 all_movies.append(movie_info)
+
     # 4.保存数据，保存为 csv 文件
     print("获取到所有的电影详情，保存电影数据到CSV文件 ...")
     save_all_movies(all_movies)
