@@ -1,6 +1,7 @@
 import requests
 import csv
 from lxml import html
+import re
 
 # 常量
 MOVIE_LIST_FILE = "../csv_data/movie_list.csv"
@@ -14,6 +15,26 @@ def save_all_movies(all_movies):
         writer = csv.DictWriter(f,fieldnames = ["电影名", "年份", "上映时间", "类型", "时长", "评分", "语言", "导演", "宣传语", "简介"])
         writer.writeheader()
         writer.writerows(all_movies)
+
+# 获取电影年份
+def get_movie_year(movie_year):
+    movie_year = movie_year[0].strip()
+    return movie_year.replace("(","").replace(")","")
+
+# 获取电影上映时间
+def get_movie_date(movie_dates):
+    movie_date = movie_dates[0].strip() if movie_dates else ''
+    return re.search(r"\d{4}-\d{2}-\d{2}",movie_date).group()
+
+
+#
+def get_movie_time(movie_cost_times):
+    movie_cost_time = movie_cost_times[0].strip() if movie_cost_times else ''
+    h_res = re.search(r"(\d+)h",movie_cost_time)
+    m_res = re.search(r"(\d+)m",movie_cost_time)
+    h = int(h_res.group(1)) if h_res else 0
+    m = int(m_res.group(1)) if m_res else 0
+    return h * 60 +m
 
 # 获取电影详情
 def get_movie_info(movie_info_url):
@@ -37,10 +58,10 @@ def get_movie_info(movie_info_url):
     # 3.返回电影详情 -- 字典
     movie_info = {
         "电影名": movie_name[0].strip() if movie_name else '',
-        "年份": movie_year[0].strip() if movie_year else '',
-        "上映时间": movie_dates[0].strip() if movie_dates else '',
+        "年份": get_movie_year(movie_year),
+        "上映时间": get_movie_date(movie_dates),
         "类型": movie_tags[0].strip() if movie_tags else '',
-        "时长": movie_cost_times[0].strip() if movie_cost_times else '',
+        "时长": get_movie_time(movie_cost_times),
         "评分": movie_scores[0].strip() if movie_scores else '',
         "语言": movie_languages[0].strip() if movie_languages else '',
         "导演": movie_directors[0].strip() if movie_directors else '',
