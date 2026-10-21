@@ -5,9 +5,9 @@ import re
 
 # 常量
 MOVIE_LIST_FILE = "../csv_data/movie_list.csv"
-TMDB_BASE_URL = "https://www.themoviedb.org/"ps://www.themoviedb.org/movie/top-rated"
+TMDB_BASE_URL = "https://www.themoviedb.org/"
 TMDB_TOP_URL_2 = "https://www.themoviedb.org/discover/movie/items"
-TMDB_TOP_URL_1 = "htt
+TMDB_TOP_URL_1 = "https://www.themoviedb.org/movie/top-rated"
 
 # 保存电影数据，保存为 csv
 def save_all_movies(all_movies):
