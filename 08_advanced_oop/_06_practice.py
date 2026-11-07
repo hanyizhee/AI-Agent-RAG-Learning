@@ -2,10 +2,10 @@ from abc import ABC,abstractmethod
 import json
 
 class Book:
-    def __init__(self,book_id, title, auther, total_num):
+    def __init__(self,book_id, title, author, total_num):
         self.book_id = book_id # 书的ID
         self.title = title # 书的标题
-        self.auther = auther # 书的作者
+        self.auther = author # 书的作者
         self.total_num = total_num # 书的总数量
         self.__available_num = total_num # 书的可借数量
 
